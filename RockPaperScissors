@@ -1,0 +1,121 @@
+import tkinter as tk
+from tkinter import messagebox
+import random
+
+class RockPaperScissors:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Rock, Paper, Scissors")
+        self.root.geometry("300x200")
+
+        self.label = tk.Label(root, background="thistle", text="Choose Rock, Paper, or Scissors")
+        self.label.pack(pady=20)
+
+        self.rock_button = tk.Button(root, text="Rock",background="green", command=lambda: self.play("Rock"))
+        self.rock_button.pack(side=tk.LEFT, padx=20)
+
+        self.paper_button = tk.Button(root, text="Paper",background="aqua", command=lambda: self.play("Paper"))
+        self.paper_button.pack(side=tk.LEFT, padx=20)
+
+        self.scissors_button = tk.Button(root, text="Scissors",background="lime", command=lambda: self.play("Scissors"))
+        self.scissors_button.pack(side=tk.LEFT, padx=20)
+
+    def play(self, user_choice):
+        choices = ["Rock", "Paper", "Scissors"]
+        computer_choice = random.choice(choices)
+
+        if user_choice == computer_choice:
+            result = "It's a tie!"
+        elif (user_choice == "Rock" and computer_choice == "Scissors") or \
+             (user_choice == "Paper" and computer_choice == "Rock") or \
+             (user_choice == "Scissors" and computer_choice == "Paper"):
+            result = "You win!"
+        else:
+            result = "You lose!"
+
+        messagebox.showinfo("Result", f"Computer chose {computer_choice}.\n{result}")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    game = RockPaperScissors(root)
+    root.mainloop()import tkinter as tk
+from tkinter import messagebox
+import random
+
+class RockPaperScissors:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Rock, Paper, Scissors")
+        self.root.geometry("300x200")
+
+        self.label = tk.Label(root, background="thistle", text="Choose Rock, Paper, or Scissors")
+        self.label.pack(pady=20)
+
+        self.rock_button = tk.Button(root, text="Rock",background="green", command=lambda: self.play("Rock"))
+        self.rock_button.pack(side=tk.LEFT, padx=20)
+
+        self.paper_button = tk.Button(root, text="Paper",background="aqua", command=lambda: self.play("Paper"))
+        self.paper_button.pack(side=tk.LEFT, padx=20)
+
+        self.scissors_button = tk.Button(root, text="Scissors",background="lime", command=lambda: self.play("Scissors"))
+        self.scissors_button.pack(side=tk.LEFT, padx=20)
+
+    def play(self, user_choice):
+        choices = ["Rock", "Paper", "Scissors"]
+        computer_choice = random.choice(choices)
+
+        if user_choice == computer_choice:
+            result = "It's a tie!"
+        elif (user_choice == "Rock" and computer_choice == "Scissors") or \
+             (user_choice == "Paper" and computer_choice == "Rock") or \
+             (user_choice == "Scissors" and computer_choice == "Paper"):
+            result = "You win!"
+        else:
+            result = "You lose!"
+
+        messagebox.showinfo("Result", f"Computer chose {computer_choice}.\n{result}")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    game = RockPaperScissors(root)
+    root.mainloop()import tkinter as tk
+from tkinter import messagebox
+import random
+
+class RockPaperScissors:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Rock, Paper, Scissors")
+        self.root.geometry("300x200")
+
+        self.label = tk.Label(root, background="thistle", text="Choose Rock, Paper, or Scissors")
+        self.label.pack(pady=20)
+
+        self.rock_button = tk.Button(root, text="Rock",background="green", command=lambda: self.play("Rock"))
+        self.rock_button.pack(side=tk.LEFT, padx=20)
+
+        self.paper_button = tk.Button(root, text="Paper",background="aqua", command=lambda: self.play("Paper"))
+        self.paper_button.pack(side=tk.LEFT, padx=20)
+
+        self.scissors_button = tk.Button(root, text="Scissors",background="lime", command=lambda: self.play("Scissors"))
+        self.scissors_button.pack(side=tk.LEFT, padx=20)
+
+    def play(self, user_choice):
+        choices = ["Rock", "Paper", "Scissors"]
+        computer_choice = random.choice(choices)
+
+        if user_choice == computer_choice:
+            result = "It's a tie!"
+        elif (user_choice == "Rock" and computer_choice == "Scissors") or \
+             (user_choice == "Paper" and computer_choice == "Rock") or \
+             (user_choice == "Scissors" and computer_choice == "Paper"):
+            result = "You win!"
+        else:
+            result = "You lose!"
+
+        messagebox.showinfo("Result", f"Computer chose {computer_choice}.\n{result}")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    game = RockPaperScissors(root)
+    root.mainloop()
