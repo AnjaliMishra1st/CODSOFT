@@ -1,0 +1,67 @@
+import tkinter
+import tkinter.messagebox
+import pickle
+
+window = tkinter.Tk()
+window.title("TO-DO-LIST")
+
+def task_adding():
+    todo = task_add.get()
+    if todo != "":
+        todo_box.insert(tkinter.END, todo)
+        task_add.delete(0, tkinter.END)
+    else:
+        tkinter.messagebox.showwarning(title="Attention !!", message="To add a task, please enter some task")
+
+def task_removing():
+    try:
+        index_todo = todo_box.curselection()[0]
+        todo_box.delete(index_todo)
+    except:
+        tkinter.messagebox.showwarning(title="Attention !!", message="To delete a task, you must select a task")
+
+def task_tracing():
+    try:
+        tasks = pickle.load(open("tasks.dat", "rb"))
+        todo_box.delete(0, tkinter.END)
+        for todo in tasks:
+            todo_box.insert(tkinter.END, todo)
+    except:
+        tkinter.messagebox.showwarning(title="Attention !!", message="Cannot trace tasks. File may not exist.")
+
+def task_saving():
+    tasks = todo_box.get(0, todo_box.size())
+    pickle.dump(tasks, open("tasks.dat", "wb"))
+
+list_frame = tkinter.Frame(window)
+list_frame.pack()
+
+todo_box = tkinter.Listbox(list_frame, height=20, width=50)
+todo_box.pack(side=tkinter.LEFT)
+
+scroller = tkinter.Scrollbar(list_frame)
+scroller.pack(side=tkinter.RIGHT, fill=tkinter.Y)
+
+todo_box.config(yscrollcommand=scroller.set)
+scroller.config(command=todo_box.yview)
+
+task_add = tkinter.Entry(window, width=70)
+task_add.pack()
+
+add_task_button = tkinter.Button(window, text="Click to add task", font=("arial", 20, "bold"), 
+                               background="pink", width=40, command=task_adding)
+add_task_button.pack()
+
+remove_task_button = tkinter.Button(window, text="Click to delete task", font=("arial", 20, "bold"),
+                                  background="sky blue", width=40, command=task_removing)
+remove_task_button.pack()
+
+trace_task_button = tkinter.Button(window, text="Click to trace task", font=("arial", 20, "bold"),
+                                 background="yellow", width=40, command=task_tracing)
+trace_task_button.pack()
+
+save_task_button = tkinter.Button(window, text="Click to save tasks", font=("arial", 20, "bold"),
+                                background="light green", width=40, command=task_saving)
+save_task_button.pack()
+
+window.mainloop()
